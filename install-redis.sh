@@ -44,6 +44,11 @@ usermod -L redis
 cp $WORKDIR/6379.conf /etc/redis/6379.conf
 cp $WORKDIR/redis.service /etc/systemd/system/
 
+# Adjust folder permissions
+chmod 755 /var/run/redis
+chmod 755 /var/log/redis
+chmod 755 -R /var/redis
+
 # Adjust folder ownership
 chown redis:redis /var/run/redis
 chown redis:redis /var/log/redis
