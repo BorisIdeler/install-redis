@@ -7,7 +7,7 @@ if [ $(whoami) != "root" ]; then
 fi
 
 # Get current working directory
-WORKDIR=$(pwd)
+WORKDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )
 
 # Get the distribution ID
 OS=$(awk -F: 'NR==3{ gsub("\"", ""); split($0, a, "=") } END { print a[2] }' /etc/os-release)
